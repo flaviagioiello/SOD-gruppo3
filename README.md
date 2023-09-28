@@ -7,7 +7,12 @@ ambientali in tempo reale, in grado di rispondere alle loro variazioni in tempo 
 1. [Materiali utilizzati](#materiali)
 2. [Descrizione del progetto](#introduzione)
 3. [Configurazione e setup](#conf)
-    1. [p](#p)
+    1. [Configurazione Hardware](#hardware)
+       1. [Sensore BMP280](#bmp280)
+       2. [Display OLED](#oled)
+       3. [Modulo RTC](#rtc)
+       4. [Ventola NOCTUA NF-A4x10 5V PWM](#ventola)
+    3. [Setup Software](#software)
 4. [Guida al codice](#guida)
 5. [Software utilizzati](#software)
 6. [Autori](#autori)
@@ -23,24 +28,44 @@ ambientali in tempo reale, in grado di rispondere alle loro variazioni in tempo 
 ***
 
 ## Descrizione del progetto <a name="introduzione"></a>
-Il principale compito del sistema è quello di monitorare costantemente i parametri
-ambientali di temperatura e pressione tramite il sensore BMP280.
-In particolare, quando la temperatura misurata supera una soglia predefinita, viene
+![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/schema.png)
+
+Tramite il sensore BMP280 vengono monitorati costantemente i parametri
+ambientali di temperatura e pressione.
+Quando la temperatura misurata supera una soglia predefinita, viene
 attivata la ventola regolando la sua velocità in proporzione alla temperatura rilevata
 così da mantenere il sistema all’interno di un range di funzionamento accettabile.
 I dati rilevati, tra cui temperatura, pressione e velocità della ventola, vengono
 visualizzati in tempo reale su un display OLED.
-Questi stessi dati, insieme ai relativi timestamp, vengono trasmessi utilizzando il
+Questi stessi dati, insieme ai relativi dati temporali, vengono trasmessi utilizzando il
 protocollo MQTT dalla scheda ESP32 alla Raspberry Pi, che funge da broker MQTT.
 La Raspberry Pi ha il compito di archiviare i dati e di agire come un server IoT
 MQTT, consentendo ad altri dispositivi connessi alla stessa rete di visualizzare e
-accedere ai dati memorizzati.
+accedere ai dati memorizzati e pubblicando tutte le informazioni su una pagina web.
 Il modulo RTC è utilizzato per garantire che tutti i dispositivi all’interno del sistema
 siano sincronizzati in termini di tempo.
+Il modulo RTC potrebbe gradualmente accumulare una piccola deriva nel tempo, il
+che può portare a ritardi nel mantenere l’ora esatta. Per affrontare questo problema,
+è stato implementato uno script eseguito sulla Raspberry Pi che estrae l’orario da
+un server NTP (Network Time Protocol) e successivamente lo trasmette all’RTC
+attraverso il protocollo MQTT.
 Il tutto è gestito da Freertos in modo da eseguire molteplici task concorrenti con
 priorità diverse e garantire che le attività abbiano sempre l’accesso alle risorse
-necessarie
+necessarie.
 ## Configurazione e setup <a name="conf"></a>
+
+### Configurazione Hardware <a name="hardware"></a>
+![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/setup.jfif)
+
+#### Sensore BMP280 <a name="bmp280"></a>
+
+#### Display OLED <a name="boled"></a>
+
+#### Modulo RTC <a name="rtc"></a>
+
+#### Ventola NOCTUA NF-A4x10 5V PWM <a name="ventola"></a>
+
+### Setup Software <a name="software"></a>
 
 ## Guida al codice <a name="guida"></a>
 
