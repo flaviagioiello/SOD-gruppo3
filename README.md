@@ -58,6 +58,14 @@ necessarie.
 ![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/setup.jfif)
 
 #### Sensore BMP280 <a name="bmp280"></a>
+* Collegare il pin VCC (<span style="color: orange;">cavo arancione</span>) del BMP280 al pin 3.3V dell’ESP32 per
+l’alimentazione.
+* Collegare il pin GND (cavo bianco) del BMP280 al pin GND dell’ESP32 per il
+collegamento a terra.
+* Collegare Il pin SDI (cavo arancione) del BMP280 al pin SDA (GPIO21 su
+ESP32) dell’ESP32 per la comunicazione I2C.
+* Collegare Il pin SCK (cavo blu) del BMP280 al pin SCL (GPIO22 su ESP32)
+dell’ESP32 per la comunicazione I2C
 
 #### Display OLED <a name="boled"></a>
 
