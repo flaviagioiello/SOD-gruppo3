@@ -131,7 +131,7 @@ aggiuntive per il Gestore schede*.
 * Selezionare la porta COM corretta a cui è collegato l’ESP32 dal menu "*trumenti > Porta*.
 * Caricare il programma di esempio *WiFi > WiFiScan* sull’ESP32 per verificare che tutto funzioni correttamente.
 
-#### Installazione librerie <a name="librerie"></a>
+#### Installazione delle librerie <a name="librerie"></a>
 * Aprire Arduino IDE.
 * Seleziona *Gestisci librerie*.
 * Cercare *nome_libreria* per installarla. Le librerie da installare sono:
