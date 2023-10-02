@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dati di Temperatura e Pressione</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Dati di Temperatura e Pressione</h1>
+    <p>Temperatura: <span id="temperatura">{{ temperatura }}</span> °C</p>
+    <p>Pressione: <span id="pressione">{{ pressione }}</span> Pa</p>
+    <p>Velocità della Ventola: <span id="velocità_ventola">{{ velocità_ventola }}</span> RPM</p>
+    <script>
+    function aggiornaDati() {
+        $.ajax({
+            url: '/visualizza-dati',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                $('#temperatura').text(data.temperatura);
+                $('#pressione').text(data.pressione);
+                $('#velocità_ventola').text(data.velocità_ventola);
+            }
+        });
+    }
+
+    // Aggiorna i dati ogni 5 secondi
+    setInterval(aggiornaDati, 5000);
+    </script>
+</body>
+</html>
+
+
