@@ -13,8 +13,9 @@ ambientali in tempo reale, in grado di rispondere alle loro variazioni in tempo 
        3. [Modulo RTC](#rtc)
        4. [Ventola NOCTUA NF-A4x10 5V PWM](#ventola)
     2. [Setup Software](#software)
-       1. [Setup Raspberry Pi](#raspberry)
+       1. [Setup Raspberry Pi 4](#raspberry)
        2. [Setup ESP32](#esp32)
+       3. [Installazione delle librerie](#librerie)
 4. [Guida al codice](#guida)
 5. [Software utilizzati](#software)
 6. [Autori](#autori)
@@ -102,7 +103,7 @@ per alimentare la ventola.
 
 ### Setup Software <a name="software"></a>
 
-#### Setup Raspberry Pi <a name="raspberry"></a>
+#### Setup Raspberry Pi 4 <a name="raspberry"></a>
 * Scaricare e installare [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 * Avviare Raspberry Pi Imager.
 * Selezionare l’immagine del sistema operativo Raspberry PI OS (32 bit).
@@ -129,6 +130,19 @@ aggiuntive per il Gestore schede*.
 * Selezionare il modello ESP32 Dev Module dal menu *Strumenti > Scheda*.
 * Selezionare la porta COM corretta a cui è collegato l’ESP32 dal menu "*trumenti > Porta*.
 * Caricare il programma di esempio *WiFi > WiFiScan* sull’ESP32 per verificare che tutto funzioni correttamente.
+
+#### Installazione librerie <a name="librerie"></a>
+* Aprire Arduino IDE.
+* Seleziona *Gestisci librerie*.
+* Cercare *nome_libreria* per installarla. Le librerie da installare sono:
+  * Wire
+  * Adafruit_BMP280
+  * Adafruit_SSD1306
+  * Adafruit GFX Library
+  * RTClib
+  * WiFi
+  * Arduino_JSON
+  * FreeRTOS
 
 ## Guida al codice <a name="guida"></a>
 
