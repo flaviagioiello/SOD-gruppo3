@@ -16,6 +16,7 @@ ambientali in tempo reale, in grado di rispondere alle loro variazioni in tempo 
        1. [Setup Raspberry Pi 4](#raspberry)
        2. [Setup ESP32](#esp32)
        3. [Installazione delle librerie](#librerie)
+       4. [Avvio e configurazione della comunicazione tra l'ESP32 e la Raspberry Pi 4](#comunicazione)
 4. [Guida al codice](#guida)
 5. [Software utilizzati](#software)
 6. [Autori](#autori)
@@ -143,6 +144,28 @@ aggiuntive per il Gestore schede*.
   * WiFi
   * Arduino_JSON
   * FreeRTOS
+
+#### Avvio e configurazione della comunicazione tra l'ESP32 e la Raspberry Pi 4 <a name="comunicazione"></a>
+**Lato ESP32:**
+* Aprire lo script *tasks_ESP32v2.0.ino*.
+* Modificare il nome della rete (SSID) e la password del WiFi con quello della propria rete, nella sezione:
+```C++
+const char *ssid = "iltuoSSID";
+const char *password = "LaTuaPassword";
+```
+* Modificare l'indirizzo IP della Raspberry nella sezione:
+```C++
+const char *mqtt_server = "IndirizzoIP_RaspberryPi";
+```
+* Salvare le modifiche e caricare il codice sulla ESP32.
+* Collegare l'ESP32 all'alimentazione e verificare la connessione WiFi.
+
+**Lato Raspberry:**
+* Aprire gli script *inviohtmlv2.0.py* e *orario.py*.
+* Modificare l'indirizzo IP della Raspberry nella sezione:
+```python
+broker_address = "IndirizzoIP_RaspberryPi"
+```
 
 ## Guida al codice <a name="guida"></a>
 **Cartella *ESP32***: 
