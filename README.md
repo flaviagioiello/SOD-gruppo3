@@ -146,11 +146,11 @@ aggiuntive per il Gestore schede*.
 
 ## Guida al codice <a name="guida"></a>
 **Cartella *ESP32***: 
-* Cartella *codice_completo* contiene il file *tasks_ESP32.ino*, che si occupa dei task relativi alla ESP32, ovvero lettura dati sensore, controllo ventola, lettura dati temporali, visualizzazione schermo OLED e comunicazione MQTT.
+* Cartella *codice_completo* contiene il file *tasks_ESP32v2.0.ino*, che si occupa dei task relativi alla ESP32, ovvero lettura dati sensore, controllo ventola, lettura dati temporali, visualizzazione schermo OLED e comunicazione MQTT.
 * Cartella *test_I2C* contiene il file *test_I2C.ino*, che effettua uno scan dei dispositivi I2C per verificare il corretto cablaggio di essi.
 
 **Cartella *Raspberry***:
-* File *inviohtml.py* riceve i dati dalla ESP32 e li invia alla pagina web.
+* File *inviohtmlv2.0.py* si occupa dello scambio dei messaggi tra ESP32 e Raspberry Pi 4.
 * Cartella *orario_mqtt* contiene il file *orario.py*, che riceve l'orario ogni 24h da un server NTP e lo invia alla ESP32 per aggiornare il modulo RTC.
 * Cartella *flask* contiene:
   * File *app.py* aggiorna i dati della pagina web.
