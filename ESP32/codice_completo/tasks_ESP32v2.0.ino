@@ -228,7 +228,6 @@ void taskJSONPublish(void *pvParameters) {
     snprintf(formattedTime, sizeof(formattedTime), "%02d:%02d:%02d", now.hour(), now.minute(), now.second());
 
     // Crea un oggetto JSON e aggiunge i dati
-    StaticJsonDocument<200> doc;
     doc["time"] = formattedTime;
 
     float temp = 0.0;
