@@ -243,7 +243,6 @@ void taskJSONPublish(void *pvParameters) {
 
     if (client.connected()) {
       // Invia il JSON se c'è connessione
-      serializeJson(doc, output);
       client.publish("parametri", output);
       Serial.println("JSON inviato: ");
       Serial.print(output);
