@@ -166,6 +166,9 @@ const char *mqtt_server = "IndirizzoIP_RaspberryPi";
 ```python
 broker_address = "IndirizzoIP_RaspberryPi"
 ```
+* Aprire il terminale ed eseguire lo script *app.py*.
+* Aprire un secondo terminale ed eseguire *inviohtml1.py*.
+* Aprire il browser e cercare l'indirizzo *http://192.168.178.188:5000/pagina*.
 
 ## Guida al codice <a name="guida"></a>
 **Cartella *ESP32***: 
@@ -173,10 +176,10 @@ broker_address = "IndirizzoIP_RaspberryPi"
 * Cartella *test_I2C* contiene il file *test_I2C.ino*, che effettua uno scan dei dispositivi I2C per verificare il corretto cablaggio di essi.
 
 **Cartella *Raspberry***:
-* File *inviohtmlv2.0.py* si occupa dello scambio dei messaggi tra ESP32 e Raspberry Pi 4.
+* File *inviohtmlv2.0.py* riceve i messaggi dall'esp32 sul topic e poi invia i dati al server Flask.
 * Cartella *orario_mqtt* contiene il file *orario.py*, che riceve l'orario ogni 24h da un server NTP e lo invia alla ESP32 per aggiornare il modulo RTC.
 * Cartella *flask* contiene:
-  * File *app.py* aggiorna i dati della pagina web.
+  * File *app.py* avvia il server Flask.
   * Cartella *templates* contiene *index.html*, che è il file per la creazione della pagina web.
 
 ***
