@@ -166,6 +166,7 @@ const char *mqtt_server = "IndirizzoIP_RaspberryPi";
 ```python
 broker_address = "IndirizzoIP_RaspberryPi"
 ```
+* Modificare il path di *orario.py* nello script *inviohtmlv2.0* nella variabile *script_path*.
 * Aprire il terminale ed eseguire lo script *app.py*.
 * Aprire un secondo terminale ed eseguire *inviohtmlv2.0.py*.
 * Aprire il browser e cercare l'indirizzo *http://192.168.178.188:5000/pagina*.
