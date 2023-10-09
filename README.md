@@ -168,7 +168,7 @@ broker_address = "IndirizzoIP_RaspberryPi"
 ```
 * Modificare il path di *orario.py* nello script *inviohtmlv2.0* nella variabile *script_path*.
 * Aprire il terminale e scrivere:
-  ```bash
+```bash
 sudo apt-get update
 sudo apt-get install ntp
 sudo nano /etc/ntp.conf
