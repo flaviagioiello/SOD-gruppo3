@@ -167,7 +167,37 @@ const char *mqtt_server = "IndirizzoIP_RaspberryPi";
 broker_address = "IndirizzoIP_RaspberryPi"
 ```
 * Modificare il path di *orario.py* nello script *inviohtmlv2.0* nella variabile *script_path*.
-* Aprire il terminale ed eseguire lo script *app.py*.
+* Aprire il terminale e scrivere:
+  ```bash
+sudo apt-get update
+sudo apt-get install ntp
+sudo nano /etc/ntp.conf
+```
+* Nel file aggiungere e salvare:
+```bash
+server 0.pool.ntp.org
+server 1.pool.ntp.org
+server 2.pool.ntp.org
+```
+* Riavviare:
+```bash
+sudo service ntp restart
+```
+* Creare il file di servizio con il comando:
+```bash
+sudo nano /etc/systems/system/orario.service
+```
+* Nel file aggiungere il path di *orario.py* e salvare.
+* Avviare il servizio:
+```bash
+sudo systemctl enable orario.service
+sudo systemctl start orario.service
+```
+* Verificare lo stato del servizio:
+```bash
+sudo systemctl status orario.service
+```
+* Eseguire lo script *app.py*.
 * Aprire un secondo terminale ed eseguire *inviohtmlv2.0.py*.
 * Aprire il browser e cercare l'indirizzo *http://192.168.178.188:5000/pagina*.
 
@@ -182,7 +212,10 @@ broker_address = "IndirizzoIP_RaspberryPi"
 * Cartella *flask* contiene:
   * File *app.py* avvia il server Flask.
   * Cartella *templates* contiene *index.html*, che è il file per la creazione della pagina web.
+ 
 
+
+Per ulteriori dettagli e informazioni sui codici si rimanda alla relazione completa.
 ***
 ## Software utilizzati <a name="software"></a>
 * [Arduino IDE](https://www.arduino.cc/en/software)
