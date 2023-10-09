@@ -187,7 +187,12 @@ sudo service ntp restart
 ```bash
 sudo nano /etc/systems/system/orario.service
 ```
-* Nel file aggiungere il path di *orario.py* e salvare.
+* Nel file aggiungere il path di *orario.py* e salvare:
+
+  
+![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/orarioservicecodice.png)
+
+
 * Avviare il servizio:
 ```bash
 sudo systemctl enable orario.service
