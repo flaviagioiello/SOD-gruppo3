@@ -15,7 +15,7 @@ ambientali in tempo reale, in grado di rispondere alle loro variazioni in tempo 
     2. [Setup Software](#software)
        1. [Setup Raspberry Pi 4](#raspberry)
        2. [Setup ESP32](#esp32)
-       3. [Installazione delle librerie](#librerie)
+       3. [Installazione delle librerie in Arduino](#librerie)
        4. [Installazione pacchetti Raspberry](#pacchetti)
        5. [Avvio e configurazione della comunicazione tra l'ESP32 e la Raspberry Pi 4](#comunicazione)
 4. [Guida al codice](#guida)
@@ -133,7 +133,7 @@ aggiuntive per il Gestore schede*.
 * Selezionare la porta COM corretta a cui è collegato l’ESP32 dal menu "*trumenti > Porta*.
 * Caricare il programma di esempio *WiFi > WiFiScan* sull’ESP32 per verificare che tutto funzioni correttamente.
 
-#### Installazione delle librerie <a name="librerie"></a>
+#### Installazione delle librerie in Arduino <a name="librerie"></a>
 * Aprire Arduino IDE.
 * Seleziona *Gestisci librerie*.
 * Cercare *nome_libreria* per installarla. Le librerie da installare sono:
@@ -148,7 +148,7 @@ aggiuntive per il Gestore schede*.
   * 
 #### Installazione pacchetti Raspberry <a name="pacchetti"></a>
 * Aprire il terminale sulla Raspberry e installare il broker MQTT Mosquitto:
-  ```bash
+```bash
 sudo apt-get install mosquitto
 sudo systemctl start mosquitto
 sudo systemctl enable mosquitto
