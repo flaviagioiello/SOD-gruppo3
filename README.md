@@ -16,7 +16,8 @@ ambientali in tempo reale, in grado di rispondere alle loro variazioni in tempo 
        1. [Setup Raspberry Pi 4](#raspberry)
        2. [Setup ESP32](#esp32)
        3. [Installazione delle librerie](#librerie)
-       4. [Avvio e configurazione della comunicazione tra l'ESP32 e la Raspberry Pi 4](#comunicazione)
+       4. [Installazione pacchetti Raspberry](#pacchetti)
+       5. [Avvio e configurazione della comunicazione tra l'ESP32 e la Raspberry Pi 4](#comunicazione)
 4. [Guida al codice](#guida)
 5. [Software utilizzati](#software)
 6. [Autori](#autori)
@@ -144,7 +145,23 @@ aggiuntive per il Gestore schede*.
   * WiFi
   * Arduino_JSON
   * FreeRTOS
-
+  * 
+#### Installazione pacchetti Raspberry <a name="pacchetti"></a>
+* Aprire il terminale sulla Raspberry e installare il broker MQTT Mosquitto:
+  ```bash
+sudo apt-get install mosquitto
+sudo systemctl start mosquitto
+sudo systemctl enable mosquitto
+```
+* Installare la libreria Paho MQTT per python:
+```bash
+pip install paho-mqtt
+```
+* Installare il pacchetto NTP:
+```bash
+sudo apt-get update
+sudo apt-get install ntp
+```
 #### Avvio e configurazione della comunicazione tra l'ESP32 e la Raspberry Pi 4 <a name="comunicazione"></a>
 **Lato ESP32:**
 * Aprire lo script *tasks_ESP32v2.0.ino*.
@@ -169,8 +186,6 @@ broker_address = "IndirizzoIP_RaspberryPi"
 * Modificare il path di *orario.py* nello script *inviohtmlv2.0* nella variabile *script_path*.
 * Aprire il terminale e scrivere:
 ```bash
-sudo apt-get update
-sudo apt-get install ntp
 sudo nano /etc/ntp.conf
 ```
 * Nel file aggiungere e salvare:
