@@ -33,7 +33,7 @@ ambientali in tempo reale, in grado di rispondere alle loro variazioni in tempo 
 ***
 
 ## Descrizione del progetto <a name="introduzione"></a>
-![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/schema.png)
+![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/img/schema.png)
 
 Tramite il sensore BMP280 vengono monitorati costantemente i parametri
 ambientali di temperatura e pressione.
@@ -60,7 +60,7 @@ necessarie.
 ## Configurazione e setup <a name="conf"></a>
 
 ### Configurazione Hardware <a name="hardware"></a>
-![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/setup.jfif)
+![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/img/setup.jfif)
 
 #### Sensore BMP280 <a name="bmp280"></a>
 * Collegare il pin VCC (cavo arancione) del BMP280 al pin 3.3V dell’ESP32 per
@@ -205,7 +205,7 @@ sudo nano /etc/systems/system/orario.service
 * Nel file aggiungere il path di *orario.py* e salvare:
 
   
-![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/orarioservicecodice.png)
+![alt text](https://github.com/flaviagioiello/SOD-gruppo3/blob/main/img/orarioservicecodice.png)
 
 
 * Avviare il servizio:
