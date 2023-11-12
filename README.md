@@ -223,7 +223,7 @@ sudo systemctl status orario.service
 
 ## Guida al codice <a name="guida"></a>
 **Cartella *ESP32***: 
-* Cartella *codice_completo* contiene il file *tasks_ESP32v2.0.ino*, che si occupa dei task relativi alla ESP32, ovvero lettura dati sensore, controllo ventola, lettura dati temporali, visualizzazione schermo OLED e comunicazione MQTT.
+* Cartella *codice_completo* contiene il file *esp32corretto.ino*, che si occupa dei task relativi alla ESP32, ovvero lettura dati sensore, controllo ventola, lettura dati temporali, visualizzazione schermo OLED e comunicazione MQTT.
 * Cartella *test_I2C* contiene il file *test_I2C.ino*, che effettua uno scan dei dispositivi I2C per verificare il corretto cablaggio di essi.
 
 **Cartella *Raspberry***:
