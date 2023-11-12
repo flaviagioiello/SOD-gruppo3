@@ -76,7 +76,7 @@ void taskFanControl(void *pvParameters);
 void taskJSONPublish(void *pvParameters);
 
 
-// Definizione dei task
+// Definizione del task di connessione MQTT
 void taskWiFi_MQTT(void *pvParameters) {
   // Connessione WiFi
   WiFi.begin(ssid, password);
@@ -147,25 +147,23 @@ void taskSensors(void *pvParameters) {
   while (true) {
     // Lettura dei sensori e aggiornamento dei valori
     display.clearDisplay();
-    leggiBmp280(temp,press);
+    leggiBmp280(temp,press); // lettura valori sensore
     display.setCursor(10, 10);
-    display.println("Temp: " + String(temp) + " C");
+    display.println("Temp: " + String(temp) + " C"); // stampa temperatura
     display.setCursor(10, 20);
-    display.println("Press: " + String(press) + " Pa");
+    display.println("Press: " + String(press) + " Pa"); // stampa pressione
     display.setCursor(10, 30);
-    display.println("PWM: " + String((getPWM() / 255.0) * 100.0) + " %");
+    display.println("PWM: " + String((getPWM() / 255.0) * 100.0) + " %"); // stampa percentuale PWM
     display.setCursor(10, 40);
-    display.println("RPM: " +  String(getRPM()));
+    display.println("RPM: " +  String(getRPM())); // stampa RPM
     display.display();
     
-    //delay(1000);
     vTaskDelayUntil(&xLastWakeTime1,5000 / portTICK_PERIOD_MS); // Lettura dei sensori ogni 5 secondi
   }
 }
 
 void taskFanControl(void *pvParameters) {
   const int fanPin = 17; // Imposta il pin per il controllo della ventola
-
   const float targetTemp = 17.4; // Temperatura desiderata in gradi Celsius
   const float tempTolerance = 0.4; // Tolleranza di temperatura in gradi Celsius
   const int maxFanSpeed = 255; // Velocità massima della ventola (0-255)
@@ -196,11 +194,7 @@ void taskFanControl(void *pvParameters) {
     else {
      // Temperatura nella soglia di tolleranza, mantieni la velocità attuale
       }
-    //fanSpeed = constrain(fanSpeed, 0, maxFanSpeed); // Assicurati che la velocità sia nell'intervallo corretto
-
-
     analogWrite(fanPin, fanSpeed);
-
     
     vTaskDelayUntil(&xLastWakeTime2,1000 / portTICK_PERIOD_MS); // Controllo della ventola ogni secondo
    }
@@ -236,8 +230,7 @@ void taskJSONPublish(void *pvParameters) {
     serializeJson(doc, output);
 
     if (client.connected()) {
-      // Invia il JSON
-      serializeJson(doc, output);
+      // Invia il JSON se c'è connessione
       client.publish("parametri", output);
       Serial.println("JSON inviato: ");
       Serial.println(output);
@@ -274,7 +267,7 @@ void readRPMTask(void *pvParameters) {
     pulseCount = 0; // Resetta il conteggio degli impulsi
     interrupts();
     rpm = (currentPulseCount * 60000UL) / (1000 * 2UL); // Il sensore dà due impulsi per ogni rotazione completa
-    vTaskDelay(pdMS_TO_TICKS(1000)); // Attendi un po' prima di eseguire un nuovo controllo
+    vTaskDelay(pdMS_TO_TICKS(1000)); // Attendi 1 s prima di eseguire un nuovo controllo
   }
 }
 
